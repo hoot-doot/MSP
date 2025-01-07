@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { Box, TextField, List, ListItem, ListItemButton, Typography } from "@mui/material";
+import {
+  Box,
+  TextField,
+  List,
+  ListItem,
+  ListItemButton,
+  Typography,
+} from "@mui/material";
 import { fetchMovies } from "../utils/api";
-import SearchIcon from '@mui/icons-material/Search';
-import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from "@mui/icons-material/Search";
+import InputAdornment from "@mui/material/InputAdornment";
 
 export default function SearchBar({ onMovieSelect }) {
   const [query, setQuery] = useState("");
@@ -15,7 +22,7 @@ export default function SearchBar({ onMovieSelect }) {
     if (searchTerm.length > 2) {
       try {
         const data = await fetchMovies(searchTerm);
-        setResults(data.results.slice(0, 5)); // Limit results to 5
+        setResults(data.results.slice(0, 5));
       } catch (error) {
         console.error(error.message);
       }
@@ -29,18 +36,17 @@ export default function SearchBar({ onMovieSelect }) {
     setQuery("");
     setResults([]);
   };
-  // SearchIcon
+
   return (
-    <Box 
+    <Box
       sx={{
-        display: "flex", 
-        justifyContent: "center",  // Center horizontally
-        alignItems: "center",      // Center vertically if needed
-        mt: 2, 
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        mt: 2,
         px: 18,
       }}
     >
-       
       <TextField
         value={query}
         onChange={handleSearch}
@@ -49,28 +55,29 @@ export default function SearchBar({ onMovieSelect }) {
           input: {
             startAdornment: (
               <InputAdornment position="start">
-                <SearchIcon sx={{ color: '#c1c1c1', height:'30px',width:'30px'}}/>
+                <SearchIcon
+                  sx={{ color: "#c1c1c1", height: "30px", width: "30px" }}
+                />
               </InputAdornment>
             ),
           },
         }}
         variant="outlined"
-        
         sx={{
           width: "40%",
           borderRadius: "30px",
           bgcolor: "transparent",
           "& .MuiOutlinedInput-root": {
-            fontSize:15,
-            fontWeight:700,
+            fontSize: 15,
+            fontWeight: 700,
             color: "#fff",
             borderRadius: "30px",
           },
           "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#fff", // White outline for input
+            borderColor: "#fff",
           },
           "&:hover .MuiOutlinedInput-root": {
-            borderColor: "#fff", // Maintain white border on hover
+            borderColor: "#fff",
           },
         }}
       />
@@ -78,17 +85,53 @@ export default function SearchBar({ onMovieSelect }) {
         <List
           sx={{
             position: "absolute",
-            top: "55px",
-            width: "50%",
-            bgcolor: "#2c2c2c",
+            top: "90px",
+            width: "30%",
+            bgcolor: "#171717",
             borderRadius: "4px",
             zIndex: 10,
+            maxHeight: "400px",
+            overflow: "auto",
           }}
         >
           {results.map((movie) => (
             <ListItem key={movie.id} disablePadding>
-              <ListItemButton onClick={() => handleMovieClick(movie)}>
-                <Typography sx={{ color: "#fff" }}>{movie.title}</Typography>
+              <ListItemButton
+                onClick={() => handleMovieClick(movie)}
+                sx={{
+                  display: "flex",
+                  gap: 2,
+                  padding: "8px",
+                  "&:hover": {
+                    bgcolor: "white",
+                  },
+                }}
+              >
+                <Box
+                  component="img"
+                  src={
+                    movie.poster_path
+                      ? `https://image.tmdb.org/t/p/w92${movie.poster_path}`
+                      : "/placeholder-poster.jpg"
+                  }
+                  alt={movie.title}
+                  sx={{
+                    width: "36px",
+                    height: "59px",
+                    objectFit: "cover",
+                    borderRadius: "4px",
+                  }}
+                />
+                <Box>
+                  <Typography sx={{ color: "#fff", fontWeight: "500" }}>
+                    {movie.title}
+                  </Typography>
+                  {movie.release_date && (
+                    <Typography sx={{ color: "#999", fontSize: "0.8rem" }}>
+                      {new Date(movie.release_date).getFullYear()}
+                    </Typography>
+                  )}
+                </Box>
               </ListItemButton>
             </ListItem>
           ))}

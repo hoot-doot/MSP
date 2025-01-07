@@ -30,7 +30,7 @@ export default function MovieCarousel({ onMovieSelect }) {
     slidesToShow: 7,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000, // Auto slide interval
+    autoplaySpeed: 200, // Auto slide interval
     arrows: false,
     pauseOnHover: true, // Pauses sliding when hovered
   };
@@ -48,7 +48,7 @@ export default function MovieCarousel({ onMovieSelect }) {
           top: 0,
           left: 0,
           height: "100%",
-          width: "50px",
+          width: "170px",
           background: `linear-gradient(to right, black, transparent)`,
           zIndex: 5,
         }}
@@ -59,7 +59,7 @@ export default function MovieCarousel({ onMovieSelect }) {
           top: 0,
           right: 0,
           height: "100%",
-          width: "50px",
+          width: "170px",
           background: `linear-gradient(to left, black, transparent)`,
           zIndex: 5,
         }}
