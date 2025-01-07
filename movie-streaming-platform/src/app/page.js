@@ -17,7 +17,7 @@ export default function Home() {
       sx={{
         bgcolor: "black",
         color: "#fff",
-        width: "78vw",
+        width: { xs: "100%", md: "78vw" },
         minHeight: "100vh",
       }}
     >

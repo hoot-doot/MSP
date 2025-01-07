@@ -56,7 +56,7 @@ export default function SearchBar({ onMovieSelect }) {
             startAdornment: (
               <InputAdornment position="start">
                 <SearchIcon
-                  sx={{ color: "#c1c1c1", height: "30px", width: "30px" }}
+                  sx={{ color: "#c1c1c1", height: "30px", width:{ xs: "15px", md: "30px" } }}
                 />
               </InputAdornment>
             ),
@@ -64,7 +64,7 @@ export default function SearchBar({ onMovieSelect }) {
         }}
         variant="outlined"
         sx={{
-          width: "40%",
+          width: { xs: "100%", md: "40%" },
           borderRadius: "30px",
           backdropFilter: "blur(5px)",
 

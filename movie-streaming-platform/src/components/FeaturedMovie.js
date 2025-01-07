@@ -58,16 +58,29 @@ export default function FeaturedMovie({ selectedMovie }) {
           }}
         />
         <SearchBar onMovieSelect={handleMovieSelect} />
-        <Box sx={{ position: "absolute", bottom: "70px", left: "20px", p: 3 }}>
-          <Typography variant="h2" sx={{ fontWeight: "bold" }}>
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: { xs: "20px", md: "70px" },
+            left: { xs: "10px", md: "20px" },
+            p: { xs: 2, md: 3 },
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: "bold",
+              fontSize: { xs: "24px", md: "48px" },
+            }}
+          >
             {movie.title}
           </Typography>
           <Typography
             variant="body1"
             sx={{
               mt: 2,
-              fontSize:"20px",
-              maxWidth: "600px",
+              fontSize: { xs: "14px", md: "20px" },
+              maxWidth: { xs: "90%", md: "600px" },
               fontWeight: "bold",
               display: "-webkit-box",
               overflow: "hidden",
@@ -79,14 +92,21 @@ export default function FeaturedMovie({ selectedMovie }) {
             {movie.overview}
           </Typography>
 
-          <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              gap: 2,
+              mt: 2,
+            }}
+          >
             <Chip
               label={`IMDb: ${movie.vote_average}`}
-              style={{
+              sx={{
                 backgroundColor: "#FACC14",
                 fontWeight: "bold",
-                fontSize: "20px",
-                padding: "12px 24px",
+                fontSize: { xs: "12px", md: "16px" }, // Smaller font size for small screens
+                padding: { xs: "8px 16px", md: "12px 24px" }, // Smaller padding for small screens
                 height: "auto",
                 borderRadius: "25px",
               }}
@@ -94,11 +114,11 @@ export default function FeaturedMovie({ selectedMovie }) {
 
             <Chip
               label={`Released On: ${movie.release_date}`}
-              style={{
+              sx={{
                 backgroundColor: "white",
                 fontWeight: "bold",
-                fontSize: "20px",
-                padding: "12px 24px",
+                fontSize: { xs: "12px", md: "16px" }, // Smaller font size for small screens
+                padding: { xs: "8px 16px", md: "12px 24px" }, // Smaller padding for small screens
                 height: "auto",
                 borderRadius: "25px",
               }}

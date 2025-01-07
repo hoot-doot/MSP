@@ -27,12 +27,20 @@ export default function MovieCarousel({ onMovieSelect }) {
   const settings = {
     infinite: true,
     speed: 1000, // Controls the speed of sliding
-    slidesToShow: 7,
+    slidesToShow: 7, // Default slides to show
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 200, // Auto slide interval
     arrows: false,
     pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 600, // Screen width in pixels
+        settings: {
+          slidesToShow: 2, // Show 2 slides on small screens
+        },
+      },
+    ],
   };
 
   const handleMovieClick = (movie) => {
@@ -40,7 +48,7 @@ export default function MovieCarousel({ onMovieSelect }) {
   };
 
   return (
-    <Box sx={{ position: "relative", mt: 2, px: 2 ,mb:10,}}>
+    <Box sx={{ position: "relative", mt: 2, px: 2, mb: 10 }}>
       {/* Faded sides */}
       <Box
         sx={{
