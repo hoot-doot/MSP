@@ -67,11 +67,17 @@ export default function SearchBar({ onMovieSelect }) {
           width: "40%",
           borderRadius: "30px",
           bgcolor: "transparent",
+
           "& .MuiOutlinedInput-root": {
             fontSize: 15,
             fontWeight: 700,
             color: "#fff",
             borderRadius: "30px",
+            
+          },
+          "& .MuiInputBase-input::placeholder": {
+            color: "white",
+            opacity:1
           },
           "& .MuiOutlinedInput-notchedOutline": {
             borderColor: "#fff",
@@ -103,7 +109,7 @@ export default function SearchBar({ onMovieSelect }) {
                   gap: 2,
                   padding: "8px",
                   "&:hover": {
-                    bgcolor: "white",
+                    bgcolor: "black",
                   },
                 }}
               >
@@ -112,7 +118,7 @@ export default function SearchBar({ onMovieSelect }) {
                   src={
                     movie.poster_path
                       ? `https://image.tmdb.org/t/p/w92${movie.poster_path}`
-                      : "/placeholder-poster.jpg"
+                      : "/placeholder.jpg"
                   }
                   alt={movie.title}
                   sx={{

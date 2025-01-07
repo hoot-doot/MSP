@@ -32,7 +32,7 @@ export default function MovieCarousel({ onMovieSelect }) {
     autoplay: true,
     autoplaySpeed: 200, // Auto slide interval
     arrows: false,
-    pauseOnHover: true, // Pauses sliding when hovered
+    pauseOnHover: true,
   };
 
   const handleMovieClick = (movie) => {

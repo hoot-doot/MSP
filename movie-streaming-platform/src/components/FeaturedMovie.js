@@ -54,20 +54,21 @@ export default function FeaturedMovie({ selectedMovie }) {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3))",
+              "linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4))",
           }}
         />
         <SearchBar onMovieSelect={handleMovieSelect} />
         <Box sx={{ position: "absolute", bottom: "70px", left: "20px", p: 3 }}>
-          <Typography variant="h3" sx={{ fontWeight: "bold" }}>
+          <Typography variant="h2" sx={{ fontWeight: "bold" }}>
             {movie.title}
           </Typography>
           <Typography
             variant="body1"
             sx={{
               mt: 2,
+              fontSize:"20px",
               maxWidth: "600px",
-              fontWeight: "medium",
+              fontWeight: "bold",
               display: "-webkit-box",
               overflow: "hidden",
               WebkitBoxOrient: "vertical",

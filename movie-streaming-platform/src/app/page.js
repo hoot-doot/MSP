@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Container, Typography } from "@mui/material";
 import FeaturedMovie from "../components/FeaturedMovie";
 import MovieCarousel from "../components/MovieCarousel";
-import SearchBar from "../components/SearchBar";
 
 export default function Home() {
   const [selectedMovie, setSelectedMovie] = useState(null);
