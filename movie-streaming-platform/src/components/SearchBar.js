@@ -44,7 +44,7 @@ export default function SearchBar({ onMovieSelect }) {
         justifyContent: "center",
         alignItems: "center",
         mt: 2,
-        px: 18,
+        px: { xs: 2, md: 18 }, // Reduced padding on mobile
       }}
     >
       <TextField
@@ -56,7 +56,7 @@ export default function SearchBar({ onMovieSelect }) {
             startAdornment: (
               <InputAdornment position="start">
                 <SearchIcon
-                  sx={{ color: "#c1c1c1", height: "30px", width:{ xs: "15px", md: "30px" } }}
+                  sx={{ color: "#c1c1c1", height: "30px", width: { xs: "15px", md: "30px" } }}
                 />
               </InputAdornment>
             ),
@@ -64,21 +64,19 @@ export default function SearchBar({ onMovieSelect }) {
         }}
         variant="outlined"
         sx={{
-          width: { xs: "100%", md: "40%" },
+          width: { xs: "90%", md: "40%" }, // Increased width on mobile
           borderRadius: "30px",
           backdropFilter: "blur(5px)",
-
 
           "& .MuiOutlinedInput-root": {
             fontSize: 15,
             fontWeight: 700,
             color: "#fff",
             borderRadius: "30px",
-            
           },
           "& .MuiInputBase-input::placeholder": {
             color: "white",
-            opacity:1
+            opacity: 1
           },
           "& .MuiOutlinedInput-notchedOutline": {
             borderColor: "#fff",
@@ -93,7 +91,7 @@ export default function SearchBar({ onMovieSelect }) {
           sx={{
             position: "absolute",
             top: "90px",
-            width: "30%",
+            width: { xs: "85%", md: "30%" }, // Increased width on mobile
             bgcolor: "#171717",
             borderRadius: "4px",
             zIndex: 10,
@@ -123,7 +121,7 @@ export default function SearchBar({ onMovieSelect }) {
                   }
                   alt={movie.title}
                   sx={{
-                    width: "36px",
+                    width: { xs: "60px", md: "92px" }, // Adjusted poster width
                     height: "59px",
                     objectFit: "cover",
                     borderRadius: "4px",

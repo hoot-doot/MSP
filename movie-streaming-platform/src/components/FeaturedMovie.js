@@ -95,7 +95,7 @@ export default function FeaturedMovie({ selectedMovie }) {
           <Box
             sx={{
               display: "flex",
-              flexDirection: "row",
+              flexDirection: { xs: "column", md: "row" },
               gap: 2,
               mt: 2,
             }}
