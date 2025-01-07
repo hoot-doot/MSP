@@ -66,7 +66,8 @@ export default function SearchBar({ onMovieSelect }) {
         sx={{
           width: "40%",
           borderRadius: "30px",
-          bgcolor: "transparent",
+          backdropFilter: "blur(5px)",
+
 
           "& .MuiOutlinedInput-root": {
             fontSize: 15,
