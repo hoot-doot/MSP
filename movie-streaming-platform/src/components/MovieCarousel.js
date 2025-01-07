@@ -40,7 +40,7 @@ export default function MovieCarousel({ onMovieSelect }) {
   };
 
   return (
-    <Box sx={{ position: "relative", mt: 2, px: 2 }}>
+    <Box sx={{ position: "relative", mt: 2, px: 2 ,mb:10,}}>
       {/* Faded sides */}
       <Box
         sx={{
