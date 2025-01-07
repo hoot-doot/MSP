@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Box, TextField, List, ListItem, ListItemButton, Typography } from "@mui/material";
 import { fetchMovies } from "../utils/api";
+import SearchIcon from '@mui/icons-material/Search';
+import InputAdornment from '@mui/material/InputAdornment';
 
 export default function SearchBar({ onMovieSelect }) {
   const [query, setQuery] = useState("");
@@ -27,19 +29,49 @@ export default function SearchBar({ onMovieSelect }) {
     setQuery("");
     setResults([]);
   };
-
+  // SearchIcon
   return (
-    <Box sx={{ position: "relative", mt: 2, px: 2 }}>
+    <Box 
+      sx={{
+        display: "flex", 
+        justifyContent: "center",  // Center horizontally
+        alignItems: "center",      // Center vertically if needed
+        mt: 2, 
+        px: 18,
+      }}
+    >
+       
       <TextField
         value={query}
         onChange={handleSearch}
         placeholder="Search Movie/Show..."
+        slotProps={{
+          input: {
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon sx={{ color: '#c1c1c1', height:'30px',width:'30px'}}/>
+              </InputAdornment>
+            ),
+          },
+        }}
         variant="outlined"
-        fullWidth
+        
         sx={{
-          bgcolor: "#2c2c2c",
-          "& .MuiOutlinedInput-root": { color: "#fff" },
-          "& .MuiOutlinedInput-notchedOutline": { borderColor: "#666" },
+          width: "40%",
+          borderRadius: "30px",
+          bgcolor: "transparent",
+          "& .MuiOutlinedInput-root": {
+            fontSize:15,
+            fontWeight:700,
+            color: "#fff",
+            borderRadius: "30px",
+          },
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#fff", // White outline for input
+          },
+          "&:hover .MuiOutlinedInput-root": {
+            borderColor: "#fff", // Maintain white border on hover
+          },
         }}
       />
       {results.length > 0 && (
@@ -47,8 +79,7 @@ export default function SearchBar({ onMovieSelect }) {
           sx={{
             position: "absolute",
             top: "55px",
-            width: "100%",
-            maxWidth: "600px",
+            width: "50%",
             bgcolor: "#2c2c2c",
             borderRadius: "4px",
             zIndex: 10,

@@ -1,10 +1,16 @@
   import { Box, Typography, Chip } from "@mui/material";
   import { fetchMovies } from "../utils/api";
   import { useEffect, useState } from "react";
+  import SearchBar from "./SearchBar";
 
   export default function FeaturedMovie() {
     const [movies, setMovies] = useState([]);
     const [featuredMovie, setFeaturedMovie] = useState(null);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const handleMovieSelect = (movie) => {
+    setSelectedMovie(movie);
+  };
     useEffect(() => {
       const loadMovies = async () => {
         try {
@@ -24,11 +30,13 @@
 
     return (
       <Box>
+        
       {featuredMovie && (
       <Box
         sx={{
           position: "relative",
-          height: "500px",
+          height: "90vh",
+          p:2,
           background: `url(https://image.tmdb.org/t/p/original${featuredMovie.backdrop_path}) center/cover no-repeat`,
         }}
       >
@@ -39,6 +47,7 @@
             background: "linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3))",
           }}
         />
+        <SearchBar onMovieSelect={handleMovieSelect} />
         <Box sx={{ position: "absolute", bottom: "20px", left: "20px" }}>
           <Typography variant="h3" sx={{ fontWeight: "bold" }}>
             {featuredMovie.title}

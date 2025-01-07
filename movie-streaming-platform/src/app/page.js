@@ -13,9 +13,8 @@ export default function Home() {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ bgcolor: "black", color: "#fff", minHeight: "100vh" }}>
-      <SearchBar onMovieSelect={handleMovieSelect} />
-      <FeaturedMovie selectedMovie={selectedMovie} />
+    <Container maxWidth="xl" sx={{ bgcolor: "black", color: "#fff", width: "78vw", minHeight: "100vh" }}>
+      <FeaturedMovie/>
       <Typography variant="h5" sx={{ fontWeight: "bold", mt: 4, px: 2 }}>
         Upcoming Movies
       </Typography>
